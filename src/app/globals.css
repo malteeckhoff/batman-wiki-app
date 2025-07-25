@@ -2,6 +2,21 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Batman Easter Egg Animation */
+@keyframes batman-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1080deg); /* 3 full rotations */
+  }
+}
+
+.animate-batman-spin {
+  animation: batman-spin 3s ease-out;
+  transform-origin: center;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

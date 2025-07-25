@@ -13,6 +13,7 @@ export default function ArticlesList() {
   const [error, setError] = useState<Error | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [batmanAnimating, setBatmanAnimating] = useState(false);
 
   const fetchArticles = async (isRefresh = false) => {
     try {
@@ -48,6 +49,14 @@ export default function ArticlesList() {
   const handleRetry = () => {
     setError(null);
     fetchArticles();
+  };
+
+  const handleBatmanClick = () => {
+    setBatmanAnimating(true);
+    // Reset animation after 3 full rotations (3 seconds at 1s per rotation)
+    setTimeout(() => {
+      setBatmanAnimating(false);
+    }, 3000);
   };
 
   if (loading && !refreshing) {
@@ -87,6 +96,7 @@ export default function ArticlesList() {
         isRefreshing={refreshing}
         articleCount={articles.length}
         lastUpdated={lastUpdated || undefined}
+        onBatmanClick={handleBatmanClick}
       />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
@@ -124,10 +134,14 @@ export default function ArticlesList() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {articles.map((article) => (
-              <ArticleCard
+              <div
                 key={article.pageid}
-                article={article}
-              />
+                className={`${batmanAnimating ? 'animate-batman-spin' : ''}`}
+              >
+                <ArticleCard
+                  article={article}
+                />
+              </div>
             ))}
           </div>
         )}
