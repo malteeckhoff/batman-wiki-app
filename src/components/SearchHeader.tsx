@@ -3,17 +3,6 @@
 import { MagnifyingGlassIcon, ArrowPathIcon, SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
 
-// Batman Symbol Component
-const BatmanIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={className}
-    fill="currentColor"
-  >
-    <path d="M50 20 C30 20, 15 30, 15 45 C15 55, 20 60, 25 58 C35 54, 40 50, 50 50 C60 50, 65 54, 75 58 C80 60, 85 55, 85 45 C85 30, 70 20, 50 20 Z M25 58 C22 62, 20 68, 25 70 C30 72, 35 68, 35 65 C35 62, 30 60, 25 58 Z M75 58 C70 60, 65 62, 65 65 C65 68, 70 72, 75 70 C80 68, 78 62, 75 58 Z" />
-  </svg>
-);
-
 interface SearchHeaderProps {
   onRefresh?: () => void;
   isRefreshing?: boolean;
@@ -96,13 +85,13 @@ export default function SearchHeader({
 
             {/* Mobile Actions */}
             <div className="flex items-center space-x-2 flex-shrink-0">
-              {/* Batman Easter Egg */}
+              {/* Batarang Easter Egg */}
               <button
                 onClick={onBatmanClick}
-                className="p-2 text-yellow-600 hover:text-yellow-700 dark:text-yellow-400 dark:hover:text-yellow-300 transition-colors hover:scale-110 transform duration-200"
-                title="🦇 Batman Easter Egg"
+                className="px-3 py-1 text-xs font-bold text-yellow-600 hover:text-yellow-700 dark:text-yellow-400 dark:hover:text-yellow-300 bg-yellow-50 dark:bg-yellow-900/20 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 rounded-md transition-all duration-200 border border-yellow-200 dark:border-yellow-800 hover:scale-105 transform"
+                title="🦇 Batman Easter Egg - Click to activate!"
               >
-                <BatmanIcon className="h-4 w-4" />
+                🦇 NA NA NA!
               </button>
 
               {/* Dark Mode Toggle */}
@@ -198,13 +187,13 @@ export default function SearchHeader({
               )}
             </button>
 
-            {/* Batman Easter Egg */}
+            {/* Batarang Easter Egg */}
             <button
               onClick={onBatmanClick}
-              className="p-2 text-yellow-600 hover:text-yellow-700 dark:text-yellow-400 dark:hover:text-yellow-300 transition-colors hover:scale-110 transform duration-200"
-              title="🦇 Batman Easter Egg"
+              className="px-4 py-2 text-sm font-bold text-yellow-600 hover:text-yellow-700 dark:text-yellow-400 dark:hover:text-yellow-300 bg-yellow-50 dark:bg-yellow-900/20 hover:bg-yellow-100 dark:hover:bg-yellow-900/30 rounded-lg transition-all duration-200 border border-yellow-200 dark:border-yellow-800 hover:scale-105 transform"
+              title="🦇 Batman Easter Egg - Click to activate!"
             >
-              <BatmanIcon className="h-5 w-5" />
+              🦇 THROW BATARANG!
             </button>
 
             {/* Refresh Button */}
