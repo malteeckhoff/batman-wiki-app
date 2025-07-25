@@ -21,8 +21,8 @@ export default function SearchHeader({
   useEffect(() => {
     // Check if dark mode is enabled
     if (typeof window !== 'undefined') {
-      const isDark = document.documentElement.classList.contains('dark') ||
-                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = localStorage.theme === 'dark' ||
+                    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
       setDarkMode(isDark);
     }
   }, []);
@@ -33,11 +33,11 @@ export default function SearchHeader({
       setDarkMode(newMode);
       
       if (newMode) {
+        localStorage.theme = 'dark';
         document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
       } else {
+        localStorage.theme = 'light';
         document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
       }
     }
   };

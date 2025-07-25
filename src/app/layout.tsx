@@ -49,11 +49,11 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              try {
-                if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark')
-                }
-              } catch (_) {}
+              document.documentElement.classList.toggle(
+                'dark',
+                localStorage.theme === 'dark' ||
+                  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+              );
             `,
           }}
         />
