@@ -76,16 +76,19 @@ export default function ArticleCard({ article, onViewDetails }: ArticleCardProps
           </p>
 
           {/* Metadata */}
-          <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-            <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs text-gray-500 dark:text-gray-400 space-y-2 sm:space-y-0">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <span className="flex items-center">
-                <CalendarIcon className="h-4 w-4 mr-1" />
-                {formatDate(article.timestamp)}
+                <CalendarIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
+                <span className="hidden sm:inline">{formatDate(article.timestamp)}</span>
+                <span className="sm:hidden">{formatDate(article.timestamp).split(',')[0]}</span>
               </span>
-              <span>{article.wordcount} words</span>
-              <span>{(article.size / 1024).toFixed(1)}KB</span>
+              <span className="hidden sm:inline">{article.wordcount} words</span>
+              <span className="sm:hidden">{article.wordcount}w</span>
+              <span className="hidden sm:inline">{(article.size / 1024).toFixed(1)}KB</span>
+              <span className="sm:hidden">{(article.size / 1024).toFixed(1)}K</span>
             </div>
-            <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+            <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded self-start sm:self-auto">
               #{article.pageid}
             </span>
           </div>

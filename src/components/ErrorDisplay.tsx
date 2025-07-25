@@ -18,16 +18,16 @@ export default function ErrorDisplay({
   const errorMessage = message || error?.message || "An unexpected error occurred.";
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[400px] p-8 text-center">
+    <div className="flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px] p-4 sm:p-8 text-center">
       <div className="bg-red-50 dark:bg-red-900/20 rounded-full p-3 mb-4">
-        <ExclamationTriangleIcon className="h-12 w-12 text-red-500 dark:text-red-400" />
+        <ExclamationTriangleIcon className="h-8 w-8 sm:h-12 sm:w-12 text-red-500 dark:text-red-400" />
       </div>
       
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+      <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
         {title}
       </h2>
       
-      <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
+      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 max-w-md">
         {errorMessage}
       </p>
       

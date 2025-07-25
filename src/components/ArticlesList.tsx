@@ -54,9 +54,9 @@ export default function ArticlesList() {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <SearchHeader />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
           <div className="mb-6">
-            <div className="h-8 bg-gray-300 dark:bg-gray-600 rounded w-64 animate-pulse"></div>
+            <div className="h-6 sm:h-8 bg-gray-300 dark:bg-gray-600 rounded w-48 sm:w-64 animate-pulse"></div>
           </div>
           <ArticleGridSkeleton count={12} />
         </main>
@@ -68,7 +68,7 @@ export default function ArticlesList() {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <SearchHeader />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
           <ErrorDisplay 
             error={error}
             title="Failed to load Batman articles"
@@ -89,13 +89,13 @@ export default function ArticlesList() {
         lastUpdated={lastUpdated || undefined}
       />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Page Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
             Latest Batman Articles
           </h2>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
             Discover the most recent Batman-related content from Wikipedia. Articles are updated in real-time.
           </p>
         </div>
@@ -105,9 +105,9 @@ export default function ArticlesList() {
           <div className="relative">
             <div className="absolute inset-0 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm z-10 rounded-lg">
               <div className="flex items-center justify-center h-full">
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex items-center space-x-3">
-                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-                  <span className="text-gray-900 dark:text-white font-medium">Refreshing articles...</span>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-3 sm:p-4 flex items-center space-x-2 sm:space-x-3 mx-4">
+                  <div className="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-blue-600"></div>
+                  <span className="text-sm sm:text-base text-gray-900 dark:text-white font-medium">Refreshing articles...</span>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function ArticlesList() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {articles.map((article) => (
               <ArticleCard
                 key={article.pageid}
@@ -133,8 +133,8 @@ export default function ArticlesList() {
         )}
 
         {/* Footer */}
-        <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-center text-gray-500 dark:text-gray-400 text-sm">
+        <footer className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-700">
+          <div className="text-center text-gray-500 dark:text-gray-400 text-xs sm:text-sm">
             <p>
               Data sourced from{' '}
               <a 
